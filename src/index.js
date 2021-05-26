@@ -17,39 +17,31 @@ let startAngle = radianConversion * 90;
 let endAngle = radianConversion * (90 + 360);
 
 function arcMove(percentageToStop, startAngle, endAngle) {
-  let degree = 0;
+  c.clearRect(0, 0, can.width, can.height);
+  percent = parseInt(degree / onePercent, 10);
 
-  let arcInterval = setInterval(() => {
-    let end;
-    degree += 1;
-    end = radianConversion * (90 + degree);
-    c.clearRect(0, 0, can.width, can.height);
-    percent = parseInt(degree / onePercent, 10);
+  spanPercent.innerHTML = percent.toFixed();
+  //spanDegree.innerHTML = degree.toFixed();
 
-    spanPercent.innerHTML = percent.toFixed();
-    spanDegree.innerHTML = degree.toFixed();
+  // this is the base circle, aka the gray area, the unfulfilled
+  c.beginPath();
+  c.arc(posX, posY, 90, startAngle, endAngle);
+  c.strokeStyle = "gray";
+  c.lineWidth = "10";
+  c.stroke();
 
-    // this is the base circle, aka the gray area, the unfulfilled
-    c.beginPath();
-    c.arc(posX, posY, 90, startAngle, endAngle);
-    c.strokeStyle = "gray";
-    c.lineWidth = "10";
-    c.stroke();
+  // this is the part where it fills up
 
-    // this is the part where it fills up
+  c.beginPath();
+  c.arc(posX, posY, 90, startAngle, endAngle - 90);
+  c.strokeStyle = "red";
+  c.lineWidth = "10";
+  c.stroke();
 
-    c.beginPath();
-    c.arc(posX, posY, 90, startAngle, end);
-    c.strokeStyle = "red";
-    c.lineWidth = "10";
-    c.stroke();
-
-    //console.log(`this is degree ${degree}`);
-    console.log(
-      `this is percent ${parseInt(percent.toFixed(), 10)} degree -- ${degree}`
-    );
-    if (degree >= percentageToStop) clearInterval(arcInterval);
-  }, fps);
+  //console.log(`this is degree ${degree}`);
+  // console.log(
+  //   `this is percent ${parseInt(percent.toFixed(), 10)} degree -- ${degree}`
+  // );
 }
 
 arcMove(percentageToStop, startAngle, endAngle);
