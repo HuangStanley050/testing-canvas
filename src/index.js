@@ -38,7 +38,7 @@ function arcMove() {
     c.arc(posX, posY, 90, startAngle, (Math.PI / 180) * (90 + degree));
     c.stroke();
 
-    if (degree < 180) {
+    if (percent < 30) {
       //   ctx.beginPath();
       // ctx.arc(0, 0, radius, 0, Math.PI * 2 * 0.2); // render arc based on angle x t
       // ctx.strokeStyle = "#06c";
@@ -47,7 +47,15 @@ function arcMove() {
       // ctx.arc(0, 0, radius, Math.PI * 2 * 0.2, Math.PI * 2 * t); // render arc based on angle x t
       // ctx.strokeStyle = "pink"; // top color
       // ctx.stroke();
-    } else {
+    }
+
+    if (percent > 30 && percent < 40) {
+    }
+
+    if (percent > 40 && percent < 50) {
+    }
+
+    if (percent > 50) {
     }
 
     //console.log(`this is degree ${degree}`);
