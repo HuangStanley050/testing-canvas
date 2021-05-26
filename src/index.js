@@ -1,7 +1,7 @@
 let can = document.getElementById("canvas"),
   spanPercent = document.getElementById("percent"),
-  spanDegree = document.getElementById("degree");
-c = can.getContext("2d");
+  spanDegree = document.getElementById("degree"),
+  c = can.getContext("2d");
 
 let posX = can.width / 2,
   posY = can.height / 2,
@@ -46,7 +46,7 @@ function arcMove(percentageToStop, startAngle, endAngle) {
 
     //console.log(`this is degree ${degree}`);
     console.log(
-      `this is percent ${parseInt(percent.toFixed())} degree -- ${degree}`
+      `this is percent ${parseInt(percent.toFixed(), 10)} degree -- ${degree}`
     );
     if (degree >= percentageToStop) clearInterval(arcInterval);
   }, fps);
