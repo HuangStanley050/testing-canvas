@@ -1,14 +1,14 @@
-let can = document.getElementById("canvas"),
-  spanPercent = document.getElementById("percent"),
-  spanDegree = document.getElementById("degree"),
-  c = can.getContext("2d");
+let can = document.getElementById("canvas");
+let spanPercent = document.getElementById("percent");
+let spanDegree = document.getElementById("degree");
+let c = can.getContext("2d");
 
-let posX = can.width / 2,
-  posY = can.height / 2,
-  fps = 1000 / 200,
-  percent = 0,
-  onePercent = 360 / 100,
-  percentageToStop = onePercent * 65;
+let posX = can.width / 2;
+let posY = can.height / 2;
+let fps = 1000 / 200;
+let percent = 0;
+let onePercent = 360 / 100;
+let percentageToStop = onePercent * 50;
 
 c.lineCap = "round";
 
@@ -30,6 +30,7 @@ function arcMove(percentageToStop, startAngle, endAngle) {
     spanDegree.innerHTML = degree.toFixed();
 
     // this is the base circle, aka the gray area, the unfulfilled
+
     c.beginPath();
     c.arc(posX, posY, 90, startAngle, endAngle);
     c.strokeStyle = "gray";
