@@ -19,7 +19,7 @@ function arcMove() {
   let acrInterval = setInterval(() => {
     degree += 1;
     c.clearRect(0, 0, can.width, can.height);
-    percent = parseInt(degree / onePercent);
+    percent = parseInt(degree / onePercent, 10);
 
     spanPercent.innerHTML = percent.toFixed();
 
